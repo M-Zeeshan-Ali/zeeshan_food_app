@@ -79,7 +79,8 @@ class _CartState extends State<Cart> {
               Align(alignment:Alignment.center ,
                 child: customcontainer(
                   padding: EdgeInsets.all(0.0),
-                  borderRadius: 0.0,
+                  ///////////////////////////////
+                  borderRadius: BorderRadius.all(Radius.circular(0.0)),
                   height: 150,
                   width: 110,
                   color: MyColors.white1,

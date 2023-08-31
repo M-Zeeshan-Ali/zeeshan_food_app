@@ -14,7 +14,10 @@ class _InviteFriendsState extends State<InviteFriends> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: MyColors.white,elevation: 1.0,
-        leading: IconButton(onPressed: (){}, icon:Icon(Icons.arrow_back,color: MyColors.pink,), ),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        },
+          icon:Icon(Icons.arrow_back,color: MyColors.pink,), ),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.all(16.0),

@@ -67,7 +67,8 @@ class Shops extends StatelessWidget {
               Align(alignment:Alignment.center ,
                 child: customcontainer(
                   padding: EdgeInsets.all(0.0),
-                  borderRadius: 0.0,
+                  borderRadius: BorderRadius.circular(0.0),
+                 // borderRadius: 0.0,
                   height: 150,
                   width: 110,
                   color: MyColors.white1,

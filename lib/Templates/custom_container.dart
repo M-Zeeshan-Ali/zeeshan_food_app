@@ -7,7 +7,7 @@ class customcontainer extends StatelessWidget {
      this.color,
       this.width,
      this.height,
-     this.borderRadius = 10.0,
+     this.borderRadius ,
      this.padding ,
      this.onTap,
      this.image,
@@ -27,7 +27,7 @@ class customcontainer extends StatelessWidget {
    Color? color;
     double? width;
     double? height;
-    double borderRadius;
+   BorderRadiusGeometry? borderRadius;
    EdgeInsetsGeometry? padding;
    Decoration? decoration;
    final Function? onTap;
@@ -46,7 +46,7 @@ class customcontainer extends StatelessWidget {
       decoration: BoxDecoration(
        // border:Border.symmetric(),
         color: color??MyColors.white1,
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius:borderRadius ?? BorderRadius.circular(10.0),
         boxShadow:boxShadow ,
         image: image,
 

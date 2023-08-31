@@ -19,7 +19,10 @@ class _PandaRewrdState extends State<PandaRewrd> {
         appBar: (AppBar(title: Text("0 points"),backgroundColor: MyColors.lightpink,
           bottom: PreferredSize(preferredSize: Size.fromHeight(30),
             child: Container(height: 30,),),
-        leading: IconButton(onPressed: (){},icon: Icon(Icons.arrow_circle_left,color: MyColors.white,size: 50),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        },
+          icon: Icon(Icons.arrow_circle_left,color: MyColors.white,size: 50),
     ),
             actions: [
             IconButton(

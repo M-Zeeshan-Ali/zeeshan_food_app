@@ -16,7 +16,9 @@ class _ProfileState extends State<Profile> {
       appBar: AppBar(backgroundColor: MyColors.white,
         elevation: 1.0,
         title: Text('Profile',style: TextStyle(color: MyColors.black),),
-        leading:IconButton(onPressed: (){},icon: Icon(Icons.close,color: MyColors.pink,)) ,
+        leading:IconButton(onPressed: (){
+          Navigator.pop(context);
+        },icon: Icon(Icons.close,color: MyColors.pink,)) ,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -74,7 +76,9 @@ class _ProfileState extends State<Profile> {
                         SizedBox(height: 10,),
                         customcontainer(
                           height: 30,width: 60,
-                         padding: EdgeInsets.zero,borderRadius:20 ,
+                         padding: EdgeInsets.zero,
+                          // borderRadius:20 ,
+                          borderRadius: BorderRadius.circular(20.0),
                            color: MyColors.white2,
                            child: Row(mainAxisAlignment: MainAxisAlignment.center,
                              children: [

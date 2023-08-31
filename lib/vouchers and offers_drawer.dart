@@ -16,7 +16,9 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
       appBar: AppBar(backgroundColor: MyColors.white,
         elevation: 3.0, 
         title: Text('Vouchers & Offers',style: TextStyle(color: MyColors.black),),
-        leading:IconButton(onPressed: (){},icon: Icon(Icons.arrow_back,color: MyColors.pink,)) ,
+        leading:IconButton(onPressed: (){
+          Navigator.pop(context);
+        },icon: Icon(Icons.arrow_back,color: MyColors.pink,)) ,
       ),
         body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -57,7 +59,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                   customcontainer(
                     boxShadow: [BoxShadow(color: MyColors.black,spreadRadius: 0.5)],
                     height: 55, width:98,
-                    borderRadius: 30,
+                    borderRadius: BorderRadius.circular(30.0),
+                    //borderRadius: 30,
                     color: MyColors.white,
                     child: Row( mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +75,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                   customcontainer(
                     boxShadow: [BoxShadow(color: MyColors.black,spreadRadius: 0.5)],
                     height: 55, width:140,
-                    borderRadius: 30,
+                    borderRadius: BorderRadius.circular(30.0),
+                    //borderRadius: 30,
                     color: MyColors.white,
                     child: Row( mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,8 +89,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                   SizedBox(width: 10,),
                   customcontainer(
                     boxShadow: [BoxShadow(color: MyColors.black,spreadRadius: 0.5)],
-                    height: 58, width:100,
-                    borderRadius: 30,
+                    height: 58, width:100,borderRadius: BorderRadius.circular(30.0),
+                    // borderRadius: 30,
                     color: MyColors.white,
                     child: Row( mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -145,7 +149,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           customcontainer(height: 55,width: 300,color: MyColors.white2,
-                              borderRadius:25,
+                              // borderRadius:25,
+                            borderRadius: BorderRadius.circular(25.0),
                             child:Row(children: [
                               Text("Min.spend Rs. 350 ' Use by 18 Aug 2023"),
 
@@ -205,7 +210,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                         children: [
                           customcontainer(
                               padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              borderRadius: BorderRadius.circular(10.0),
+                              // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -229,7 +235,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                         children: [
                           customcontainer(
                               padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              borderRadius: BorderRadius.circular(10.0),
+                              // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -256,7 +263,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                         children: [
                           customcontainer(
                               padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              borderRadius: BorderRadius.circular(10.0),
+                              // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -283,7 +291,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                         children: [
                           customcontainer(
                               padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              borderRadius: BorderRadius.circular(10.0),
+                              // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -310,7 +319,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                         children: [
                           customcontainer(
                               padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              borderRadius: BorderRadius.circular(10.0),
+                             // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -337,7 +347,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                         children: [
                           customcontainer(
                               padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              borderRadius: BorderRadius.circular(10.0),
+                              // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -396,7 +407,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                         children: [
                           customcontainer(
                               padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              borderRadius: BorderRadius.circular(10.0),
+                              // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -420,7 +432,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                         children: [
                           customcontainer(
                               padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              borderRadius: BorderRadius.circular(10.0),
+                              //borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -446,8 +459,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                       Stack(
                         children: [
                           customcontainer(
-                              padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              padding: EdgeInsets.all(0.0),borderRadius: BorderRadius.circular(10.0),
+                              // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -473,8 +486,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                       Stack(
                         children: [
                           customcontainer(
-                              padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              padding: EdgeInsets.all(0.0),borderRadius: BorderRadius.circular(10.0),
+                              // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -500,8 +513,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                       Stack(
                         children: [
                           customcontainer(
-                              padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              padding: EdgeInsets.all(0.0),borderRadius: BorderRadius.circular(10.0),
+                              // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,
@@ -527,8 +540,8 @@ class _VouchersandOffersState extends State<VouchersandOffers> {
                       Stack(
                         children: [
                           customcontainer(
-                              padding: EdgeInsets.all(0.0),
-                              borderRadius: 10.0,
+                              padding: EdgeInsets.all(0.0),borderRadius: BorderRadius.circular(10.0),
+                              // borderRadius: 10.0,
                               height: 180,
                               width: 150,
                               color: MyColors.lightblack,

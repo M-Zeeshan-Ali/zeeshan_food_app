@@ -21,7 +21,9 @@ class _FavouritesState extends State<Favourites> {
         key: scaffoldKey,
           appBar: AppBar(backgroundColor: MyColors.white1,
             leading: IconButton(icon:Icon (Icons.arrow_back,color: MyColors.black),
-                onPressed: (){}),
+                onPressed: (){
+              Navigator.pop(context);
+                }),
 
             title: Text('Favourites',style: TextStyle(color: MyColors.black,)  ),
           bottom:TabBar(indicatorColor: MyColors.pink,

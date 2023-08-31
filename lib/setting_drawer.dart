@@ -17,7 +17,10 @@ class _SettingsState extends State<Settings> {
       appBar: AppBar(backgroundColor: MyColors.white,
         elevation: 2.0,
         title: Text('Settings',style: TextStyle(color: MyColors.black),),
-        leading:IconButton(onPressed: (){},icon: Icon(Icons.arrow_back,color: MyColors.pink,),),
+        leading:IconButton(onPressed: (){
+          Navigator.pop(context);
+        },
+          icon: Icon(Icons.arrow_back,color: MyColors.pink,),),
       ),
 
       body: Padding(

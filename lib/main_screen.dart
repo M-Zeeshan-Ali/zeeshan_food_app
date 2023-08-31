@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:zeeshan_food_app/Orders%20and%20rordering_drawer.dart';
 import 'package:zeeshan_food_app/Templates/custom_container.dart';
 import 'package:zeeshan_food_app/Templates/custom_gestureDetector.dart';
+import 'package:zeeshan_food_app/address_drawer.dart';
 import 'package:zeeshan_food_app/colors.dart';
+import 'package:zeeshan_food_app/favourites_heart.dart';
+import 'package:zeeshan_food_app/foodForBusiness_drawer.dart';
+import 'package:zeeshan_food_app/helpcenter_drawer.dart';
+import 'package:zeeshan_food_app/invitefriends_drawer.dart';
+import 'package:zeeshan_food_app/pandapro.dart';
+import 'package:zeeshan_food_app/pandareward_drawer.dart';
 import 'package:zeeshan_food_app/payment_method.dart';
+import 'package:zeeshan_food_app/profile_drawer.dart';
+import 'package:zeeshan_food_app/setting_drawer.dart';
+import 'package:zeeshan_food_app/vouchers%20and%20offers_drawer.dart';
+
+import 'gift_cart.dart';
 
 
 class MainScreen extends StatefulWidget {
@@ -94,16 +107,34 @@ class _MainScreenState extends State<MainScreen> {
                 children: [
                   Row(
                       children: [
-                        RichText(
-                          text: TextSpan(text: 'Panda', style: TextStyle(color: MyColors.pink,fontSize: 15,),),
+                        CustomGestureDetector(onTap: (){
+                          setState(() {
+                            Navigator.push(context,MaterialPageRoute(builder: (context) => PaymentMethod(),),);
+                          });
+                        },
+                          child: RichText(
+                            text: TextSpan(text: 'Panda', style: TextStyle(color: MyColors.pink,fontSize: 15,),),
                       ),
-                        Text('pay',
-                          style: TextStyle(color: MyColors.white,
-                          background: Paint()..color = MyColors.pink,fontSize: 20,fontStyle: FontStyle.italic,
-                        ),),
+                        ),
+                        CustomGestureDetector(onTap: (){
+                          setState(() {
+                            Navigator.push(context,MaterialPageRoute(builder: (context) => PaymentMethod(),),);
+                          });
+                        },
+                          child: Text('pay',
+                            style: TextStyle(color: MyColors.white,
+                            background: Paint()..color = MyColors.pink,fontSize: 20,fontStyle: FontStyle.italic,
+                          ),),
+                        ),
                         Spacer(),
                         ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentMethod(),
+                                )
+                                );
+                              });
+                            },
                             style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),),
@@ -155,80 +186,98 @@ class _MainScreenState extends State<MainScreen> {
           ),
           // Icon(Icons.propane),
           title:Text('Become a pandapro',style: TextStyle(fontSize: 20.0)),onTap: () {
-            Navigator.canPop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => PandaPro(),
+              )
+              );
+            //Navigator.canPop(context);
           },
           ),
 
             ListTile(leading:
                Icon(Icons.local_offer,color: MyColors.pink,size: 28.0),
-              title:Text('Vochers and offers',style: TextStyle(fontSize: 20.0)),onTap: () {
-                Navigator.canPop(context);
+              title:Text('Vochers and offers',style: TextStyle(fontSize: 20.0)),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => VouchersandOffers(),
+                )
+                );
+                //Navigator.canPop(context);
               },
             ),
 
             ListTile(leading:
             Icon(Icons.heart_broken_sharp,color: MyColors.pink,size: 28.0),
               title:Text('Favourites',style: TextStyle(fontSize: 20.0)),onTap: () {
-                Navigator.canPop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Favourites(),));
+              //  Navigator.canPop(context);
               },
             ),
 
             ListTile(leading:
             Icon(Icons.insert_comment_rounded,color: MyColors.pink,size: 28.0),
               title:Text('Orders & reordering',style: TextStyle(fontSize: 20.0)),onTap: () {
-                Navigator.canPop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Order_reordering(),));
+                // Navigator.canPop(context);
               },
             ),
             ListTile(leading:
             Icon(Icons.perm_identity,color: MyColors.pink,size: 28.0),
               title:Text('Profile',style: TextStyle(fontSize: 20.0)),onTap: () {
-                Navigator.canPop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
+                //Navigator.canPop(context);
               },
             ),
             ListTile(leading:
             Icon(Icons.location_on_outlined,color: MyColors.pink,size: 28.0),
               title:Text('Addresses',style: TextStyle(fontSize: 20.0)),onTap: () {
-                Navigator.canPop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Address()));
+              //  Navigator.canPop(context);
               },
             ),
             ListTile(leading:
             Icon(Icons.wine_bar_outlined,color: MyColors.pink,size: 28.0),
               title:Text('Panda Rewards',style: TextStyle(fontSize: 20.0)),onTap: () {
-                Navigator.canPop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => PandaRewrd()));
+              // Navigator.canPop(context);
               },
             ),
             ListTile(leading:
             Icon(Icons.question_mark_sharp,color: MyColors.pink,size: 28.0),
               title:Text('help Centers',style: TextStyle(fontSize: 20.0)),onTap: () {
-                Navigator.canPop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HelpCenter()));
+              //  Navigator.canPop(context);
               },
             ),
             ListTile(leading:
             Icon(Icons.business,color: MyColors.pink,size: 28.0),
               title:Text('FoodPanda For Business',style: TextStyle(fontSize: 18.0)),onTap: () {
-                Navigator.canPop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => FoodForBusiness()));
+              //  Navigator.canPop(context);
               },
             ),
             ListTile(leading:
             Icon(Icons.card_giftcard_outlined,color: MyColors.pink,size: 28.0),
               title:Text('Invite Friends',style: TextStyle(fontSize: 18.0)),onTap: () {
-                Navigator.canPop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => InviteFriends()));
+              //  Navigator.canPop(context);
               },
             ),
 
             ListTile(leading:
             Text('Settings',style: TextStyle(fontSize: 18.0)),onTap: () {
-                Navigator.canPop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
+              //  Navigator.canPop(context);
               },
             ),
             ListTile(leading:
             Text('Terms & Conditions /Privacy',style: TextStyle(fontSize: 18.0)),onTap: () {
-              Navigator.canPop(context);
+             // Navigator.push(context, MaterialPageRoute(builder: (context) => Cart()));
+              //Navigator.canPop(context);
             },
             ),
             ListTile(leading:
             Text('logout',style: TextStyle(fontSize: 18.0)),onTap: () {
-              Navigator.canPop(context);
+            //  Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
+            //  Navigator.canPop(context);
             },
             ),
           ],
@@ -260,7 +309,7 @@ class _MainScreenState extends State<MainScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Food Delivery',style: TextStyle(color: MyColors.black,fontSize: 20,fontWeight: FontWeight.bold)),
-                        Text('Order from your favourite resturants and home chefs',style: TextStyle(color: MyColors.black,fontSize: 15,)),
+                        Text('Order from your favourite restaurants and home chefs',style: TextStyle(color: MyColors.black,fontSize: 15,)),
                         Spacer(),
                         Align(alignment: Alignment.bottomRight,
                           child: Image.asset('assets/images/main1.png',
@@ -449,7 +498,8 @@ class _MainScreenState extends State<MainScreen> {
                                 children: [
                                 customcontainer(
                                     padding: EdgeInsets.all(0.0),
-                                    borderRadius: 10.0,
+                                    //////
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
                                     height: 150,
                                     width: 250,
                                     color: MyColors.lightblack,
@@ -520,7 +570,8 @@ class _MainScreenState extends State<MainScreen> {
                                 children: [
                                   customcontainer(
                                       padding: EdgeInsets.all(0.0),
-                                      borderRadius: 10.0,
+                                      ///////////////////////////////
+                                      //borderRadius: 10.0,
                                       height: 150,
                                       width: 250,
                                       color: MyColors.lightblack,
@@ -590,7 +641,7 @@ class _MainScreenState extends State<MainScreen> {
                                 children: [
                                   customcontainer(
                                       padding: EdgeInsets.all(0.0),
-                                      borderRadius: 10.0,
+                                  //    borderRadius: 10.0,
                                       height: 150,
                                       width: 250,
                                       color: MyColors.lightblack,
@@ -660,7 +711,7 @@ class _MainScreenState extends State<MainScreen> {
                                 children: [
                                   customcontainer(
                                       padding: EdgeInsets.all(0.0),
-                                      borderRadius: 10.0,
+                                    //  borderRadius: 10.0,
                                       height: 150,
                                       width: 250,
                                       color: MyColors.lightblack,
@@ -730,7 +781,7 @@ class _MainScreenState extends State<MainScreen> {
                                 children: [
                                   customcontainer(
                                       padding: EdgeInsets.all(0.0),
-                                      borderRadius: 10.0,
+                                //      borderRadius: 10.0,
                                       height: 150,
                                       width: 250,
                                       color: MyColors.lightblack,
@@ -801,7 +852,7 @@ class _MainScreenState extends State<MainScreen> {
                                 children: [
                                   customcontainer(
                                       padding: EdgeInsets.all(0.0),
-                                      borderRadius: 10.0,
+                                      // borderRadius: 10.0,
                                       height: 150,
                                       width: 250,
                                       color: MyColors.lightblack,
@@ -1277,7 +1328,7 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                     ),
                     SizedBox(height: 20,),
-                    Text('Pick Up at a resturant near your',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: MyColors.black),),
+                    Text('Pick Up at a restaurant near your',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: MyColors.black),),
                     SizedBox(height: 10,),
                 
                     customcontainer(
@@ -1287,78 +1338,229 @@ class _MainScreenState extends State<MainScreen> {
                       image: DecorationImage(image: AssetImage("assets/images/zf.png"),fit: BoxFit.cover),
 
 
-                       // child: customcontainer(
-                       //   height: 100,
-                       //   width: 100,
-                       //   color: MyColors.pink,
-                       //   child: Column(
-                       //     crossAxisAlignment: CrossAxisAlignment.start,
-                       //     children: [
-                       //       Stack(
-                       //         children: [
-                       //           customcontainer(
-                       //               padding: EdgeInsets.fromLTRB(1.0, 1.0, 2.0, 2.0),
-                       //               borderRadius: 10.0,
-                       //               height: 150,
-                       //               width: 300,
-                       //               color: MyColors.lightblack,
-                       //               onTap:(){},
-                       //               image: DecorationImage(image: AssetImage('assets/images/pizza.jpg',),
-                       //                 fit: BoxFit.cover,)
-                       //
-                       //             // child:Image.asset('assets/images/pizza.jpg',
-                       //             //   fit: BoxFit.cover,
-                       //             // )
-                       //           ),
-                       //           Column(crossAxisAlignment: CrossAxisAlignment.start,
-                       //             children: [
-                       //               SizedBox(height: 5.0,),
-                       //               Container(
-                       //                 padding: EdgeInsets.all(0.0),
-                       //                 height: 40,width: 110,
-                       //                 decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-                       //
-                       //                 child: Padding(
-                       //                   padding: const EdgeInsets.all(5.0),
-                       //                   child: Row(children: [Text('Summer Deals',style: TextStyle(color: MyColors.white),)]),
-                       //                 ),
-                       //               ),
-                       //               SizedBox(height: 10.0,),
-                       //               Container(
-                       //                 padding: EdgeInsets.all(0.0),
-                       //                 height: 40,width: 180,
-                       //                 decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-                       //
-                       //                 child: Padding(
-                       //                   padding: const EdgeInsets.all(5.0),
-                       //                   child: Row(children: [Text('2 Small Pizza for Rs 675',style: TextStyle(color: MyColors.white),)]),
-                       //                 ),
-                       //               ),
-                       //
-                       //
-                       //             ],
-                       //           ),
-                       //         ],
-                       //       ),
-                       //       SizedBox(height: 5.0,),
-                       //       Row(mainAxisAlignment: MainAxisAlignment.start,
-                       //         crossAxisAlignment: CrossAxisAlignment.start,
-                       //         children: [
-                       //           Text('french Pizza',style: TextStyle(fontWeight: FontWeight.bold)),
-                       //          // Spacer(),
-                       //           Icon(Icons.star,color: MyColors.yellow),
-                       //           Text('4.0',style: TextStyle(fontWeight: FontWeight.bold)),
-                       //           Text('(500+)',style: TextStyle(color: MyColors.lightblack)),
-                       //         ],
-                       //       ),
-                       //       Text("4.5KM away Pick up in 15 min",style: TextStyle(color: MyColors.lightblack)),
-                       //     ],
-                       //   ),
-                       //
-                       // ),
+                       child: SingleChildScrollView(scrollDirection:Axis.horizontal ,
+                         child: Row(
+                           children: [
+                             customcontainer(
+                               height: 240,
+                               width: 300,
+                               color: MyColors.white2,
+                               child: Column(
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+                                   Stack(
+                                     children: [
+                                       customcontainer(
+                                           padding: EdgeInsets.fromLTRB(10.0, 1.0, 2.0, 2.0),
+                                           // borderRadius: 10.0,
+                                           height: 150,
+                                           width: 300,
+                                           color: MyColors.lightblack,
+                                           onTap:(){},
+                                           image: DecorationImage(image: AssetImage('assets/images/pizza.jpg',),
+                                             fit: BoxFit.cover,)
+
+                                         // child:Image.asset('assets/images/pizza.jpg',
+                                         //   fit: BoxFit.cover,
+                                         // )
+                                       ),
+                                       Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                         children: [
+                                           SizedBox(height: 5.0,),
+                                           customcontainer(
+                                             padding: EdgeInsets.all(0.0),
+                                             height: 40,width: 110,
+                                             borderRadius:BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),) ,
+                                             color: MyColors.pink,
+
+                                             child: Padding(
+                                               padding: const EdgeInsets.all(5.0),
+                                               child: Row(children: [Text('Summer Deals',style: TextStyle(color: MyColors.white),)]),
+                                             ),
+                                           ),
+                                           SizedBox(height: 10.0,),
+                                           customcontainer(
+                                             padding: EdgeInsets.all(0.0),
+                                             height: 40,width: 180,
+                                             color: MyColors.pink,
+                                             borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
+
+                                             child: Padding(
+                                               padding: const EdgeInsets.all(5.0),
+                                               child: Row(children: [Text('2 Small Pizza for Rs 675',style: TextStyle(color: MyColors.white),)]),
+                                             ),
+                                           ),
 
 
-                      // SizeBox(width:10),
+                                         ],
+                                       ),
+                                     ],
+                                   ),
+                                   SizedBox(height: 5.0,),
+                                   Row(mainAxisAlignment: MainAxisAlignment.start,
+                                     crossAxisAlignment: CrossAxisAlignment.start,
+                                     children: [
+                                       Text('french Pizza',style: TextStyle(fontWeight: FontWeight.bold)),
+                                       Spacer(),
+                                       Icon(Icons.star,color: MyColors.yellow),
+                                       Text('4.0',style: TextStyle(fontWeight: FontWeight.bold)),
+                                       Text('(500+)',style: TextStyle(color: MyColors.lightblack)),
+                                     ],
+                                   ),
+                                   Text("4.5KM away Pick up in 15 min",style: TextStyle(color: MyColors.lightblack)),
+                                 ],
+                               ),
+
+                             ),
+                         SizedBox(width: 10),
+                             customcontainer(
+                               height: 240,
+                               width: 300,
+                               color: MyColors.white2,
+                               child: Column(
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+                                   Stack(
+                                     children: [
+                                       customcontainer(
+                                           padding: EdgeInsets.fromLTRB(10.0, 1.0, 2.0, 2.0),
+                                           // borderRadius: 10.0,
+                                           height: 150,
+                                           width: 300,
+                                           color: MyColors.lightblack,
+                                           onTap:(){},
+                                           image: DecorationImage(image: AssetImage('assets/images/pizza.jpg',),
+                                             fit: BoxFit.cover,)
+
+                                         // child:Image.asset('assets/images/pizza.jpg',
+                                         //   fit: BoxFit.cover,
+                                         // )
+                                       ),
+                                       Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                         children: [
+                                           SizedBox(height: 5.0,),
+                                           customcontainer(
+                                             padding: EdgeInsets.all(0.0),
+                                             height: 40,width: 110,
+                                             borderRadius:BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),) ,
+                                             color: MyColors.pink,
+
+                                             child: Padding(
+                                               padding: const EdgeInsets.all(5.0),
+                                               child: Row(children: [Text('Summer Deals',style: TextStyle(color: MyColors.white),)]),
+                                             ),
+                                           ),
+                                           SizedBox(height: 10.0,),
+                                           customcontainer(
+                                             padding: EdgeInsets.all(0.0),
+                                             height: 40,width: 180,
+                                             color: MyColors.pink,
+                                             borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
+
+                                             child: Padding(
+                                               padding: const EdgeInsets.all(5.0),
+                                               child: Row(children: [Text('2 Small Pizza for Rs 675',style: TextStyle(color: MyColors.white),)]),
+                                             ),
+                                           ),
+
+
+                                         ],
+                                       ),
+                                     ],
+                                   ),
+                                   SizedBox(height: 5.0,),
+                                   Row(mainAxisAlignment: MainAxisAlignment.start,
+                                     crossAxisAlignment: CrossAxisAlignment.start,
+                                     children: [
+                                       Text('french Pizza',style: TextStyle(fontWeight: FontWeight.bold)),
+                                       Spacer(),
+                                       Icon(Icons.star,color: MyColors.yellow),
+                                       Text('4.0',style: TextStyle(fontWeight: FontWeight.bold)),
+                                       Text('(500+)',style: TextStyle(color: MyColors.lightblack)),
+                                     ],
+                                   ),
+                                   Text("4.5KM away Pick up in 15 min",style: TextStyle(color: MyColors.lightblack)),
+                                 ],
+                               ),
+
+                             ),
+                             SizedBox(width: 10),
+
+                             SizedBox(width: 10),
+                             customcontainer(
+                               height: 240,
+                               width: 300,
+                               color: MyColors.white2,
+                               child: Column(
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+                                   Stack(
+                                     children: [
+                                       customcontainer(
+                                           padding: EdgeInsets.fromLTRB(10.0, 1.0, 2.0, 2.0),
+                                           // borderRadius: 10.0,
+                                           height: 150,
+                                           width: 300,
+                                           color: MyColors.lightblack,
+                                           onTap:(){},
+                                           image: DecorationImage(image: AssetImage('assets/images/pizza.jpg',),
+                                             fit: BoxFit.cover,)
+
+                                         // child:Image.asset('assets/images/pizza.jpg',
+                                         //   fit: BoxFit.cover,
+                                         // )
+                                       ),
+                                       Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                         children: [
+                                           SizedBox(height: 5.0,),
+                                           customcontainer(
+                                             padding: EdgeInsets.all(0.0),
+                                             height: 40,width: 110,
+                                             borderRadius:BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),) ,
+                                             color: MyColors.pink,
+
+                                             child: Padding(
+                                               padding: const EdgeInsets.all(5.0),
+                                               child: Row(children: [Text('Summer Deals',style: TextStyle(color: MyColors.white),)]),
+                                             ),
+                                           ),
+                                           SizedBox(height: 10.0,),
+                                           customcontainer(
+                                             padding: EdgeInsets.all(0.0),
+                                             height: 40,width: 180,
+                                             color: MyColors.pink,
+                                             borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
+
+                                             child: Padding(
+                                               padding: const EdgeInsets.all(5.0),
+                                               child: Row(children: [Text('2 Small Pizza for Rs 675',style: TextStyle(color: MyColors.white),)]),
+                                             ),
+                                           ),
+
+
+                                         ],
+                                       ),
+                                     ],
+                                   ),
+                                   SizedBox(height: 5.0,),
+                                   Row(mainAxisAlignment: MainAxisAlignment.start,
+                                     crossAxisAlignment: CrossAxisAlignment.start,
+                                     children: [
+                                       Text('french Pizza',style: TextStyle(fontWeight: FontWeight.bold)),
+                                       Spacer(),
+                                       Icon(Icons.star,color: MyColors.yellow),
+                                       Text('4.0',style: TextStyle(fontWeight: FontWeight.bold)),
+                                       Text('(500+)',style: TextStyle(color: MyColors.lightblack)),
+                                     ],
+                                   ),
+                                   Text("4.5KM away Pick up in 15 min",style: TextStyle(color: MyColors.lightblack)),
+                                 ],
+                               ),
+
+                             ),
+                           ],
+                         ),
+                       ),
                     ),
 
                     // SizedBox(height: 10.0,),
@@ -1393,7 +1595,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 230,
                                          width: 200,
                                          color: MyColors.lightblack,
@@ -1417,7 +1619,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 230,
                                          width: 200,
                                          color: MyColors.lightblack,
@@ -1432,10 +1634,9 @@ class _MainScreenState extends State<MainScreen> {
                                      Column(crossAxisAlignment: CrossAxisAlignment.start,
                                        children: [
                                          SizedBox(height: 5.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 110,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           height: 40,width: 110,color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1443,10 +1644,9 @@ class _MainScreenState extends State<MainScreen> {
                                            ),
                                          ),
                                          SizedBox(height: 10.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 180,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           height: 40,width: 170,color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1455,12 +1655,11 @@ class _MainScreenState extends State<MainScreen> {
                                          ),
                                          SizedBox(height: 10.0,),
                                          Padding(padding:EdgeInsets.only(left: 10),
-                                           child: Container(
+                                           child: customcontainer(
                                              padding: EdgeInsets.all(0.0),
-                                             height: 30,
-                                             // width: 88,
-                                             decoration: BoxDecoration(color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20))),
-
+                                             height: 30,// width: 88,
+                                             color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20),
+                                           ),
                                              child: Padding(
                                                padding:EdgeInsets.all(8.0),
                                                child: Row(children: [
@@ -1485,7 +1684,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 230,
                                          width: 200,
                                          color: MyColors.lightblack,
@@ -1500,10 +1699,9 @@ class _MainScreenState extends State<MainScreen> {
                                      Column(crossAxisAlignment: CrossAxisAlignment.start,
                                        children: [
                                          SizedBox(height: 5.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 110,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           height: 40,width: 110,color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1511,10 +1709,9 @@ class _MainScreenState extends State<MainScreen> {
                                            ),
                                          ),
                                          SizedBox(height: 10.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 180,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           height: 40,width: 170,color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1523,12 +1720,11 @@ class _MainScreenState extends State<MainScreen> {
                                          ),
                                          SizedBox(height: 10.0,),
                                          Padding(padding:EdgeInsets.only(left: 10),
-                                           child: Container(
+                                           child: customcontainer(
                                              padding: EdgeInsets.all(0.0),
-                                             height: 30,
-                                             // width: 88,
-                                             decoration: BoxDecoration(color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20))),
-
+                                             height: 30,// width: 88,
+                                             color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20),
+                                           ),
                                              child: Padding(
                                                padding:EdgeInsets.all(8.0),
                                                child: Row(children: [
@@ -1553,7 +1749,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 230,
                                          width: 200,
                                          color: MyColors.lightblack,
@@ -1568,10 +1764,9 @@ class _MainScreenState extends State<MainScreen> {
                                      Column(crossAxisAlignment: CrossAxisAlignment.start,
                                        children: [
                                          SizedBox(height: 5.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 110,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           height: 40,width: 110,color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1579,10 +1774,9 @@ class _MainScreenState extends State<MainScreen> {
                                            ),
                                          ),
                                          SizedBox(height: 10.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 180,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           height: 40,width: 170,color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1591,12 +1785,11 @@ class _MainScreenState extends State<MainScreen> {
                                          ),
                                          SizedBox(height: 10.0,),
                                          Padding(padding:EdgeInsets.only(left: 10),
-                                           child: Container(
+                                           child: customcontainer(
                                              padding: EdgeInsets.all(0.0),
-                                             height: 30,
-                                             // width: 88,
-                                             decoration: BoxDecoration(color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20))),
-
+                                             height: 30,// width: 88,
+                                             color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20),
+                                           ),
                                              child: Padding(
                                                padding:EdgeInsets.all(8.0),
                                                child: Row(children: [
@@ -1621,7 +1814,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 230,
                                          width: 200,
                                          color: MyColors.lightblack,
@@ -1636,10 +1829,9 @@ class _MainScreenState extends State<MainScreen> {
                                      Column(crossAxisAlignment: CrossAxisAlignment.start,
                                        children: [
                                          SizedBox(height: 5.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 110,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           height: 40,width: 110,color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1647,10 +1839,9 @@ class _MainScreenState extends State<MainScreen> {
                                            ),
                                          ),
                                          SizedBox(height: 10.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 180,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           height: 40,width: 170,color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1659,12 +1850,11 @@ class _MainScreenState extends State<MainScreen> {
                                          ),
                                          SizedBox(height: 10.0,),
                                          Padding(padding:EdgeInsets.only(left: 10),
-                                           child: Container(
+                                           child: customcontainer(
                                              padding: EdgeInsets.all(0.0),
-                                             height: 30,
-                                             // width: 88,
-                                             decoration: BoxDecoration(color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20))),
-
+                                             height: 30,// width: 88,
+                                             color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20),
+                                           ),
                                              child: Padding(
                                                padding:EdgeInsets.all(8.0),
                                                child: Row(children: [
@@ -1689,7 +1879,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 230,
                                          width: 200,
                                          color: MyColors.lightblack,
@@ -1704,10 +1894,9 @@ class _MainScreenState extends State<MainScreen> {
                                      Column(crossAxisAlignment: CrossAxisAlignment.start,
                                        children: [
                                          SizedBox(height: 5.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 110,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           height: 40,width: 110,color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1715,10 +1904,9 @@ class _MainScreenState extends State<MainScreen> {
                                            ),
                                          ),
                                          SizedBox(height: 10.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 180,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           height: 40,width: 170,color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1727,12 +1915,11 @@ class _MainScreenState extends State<MainScreen> {
                                          ),
                                          SizedBox(height: 10.0,),
                                          Padding(padding:EdgeInsets.only(left: 10),
-                                           child: Container(
+                                           child: customcontainer(
                                              padding: EdgeInsets.all(0.0),
-                                             height: 30,
-                                             // width: 88,
-                                             decoration: BoxDecoration(color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20))),
-
+                                             height: 30,// width: 88,
+                                             color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20),
+                                           ),
                                              child: Padding(
                                                padding:EdgeInsets.all(8.0),
                                                child: Row(children: [
@@ -1752,6 +1939,9 @@ class _MainScreenState extends State<MainScreen> {
                            ],
                          ),
                        ),
+
+
+
                        SizedBox(height: 20.0,),
                        Text('Shops',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: MyColors.black),),
                        SizedBox(height: 20.0,),
@@ -1891,7 +2081,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 180,
                                          width: 280,
                                          color: MyColors.lightblack,
@@ -1919,7 +2109,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 180,
                                          width: 280,
                                          color: MyColors.lightblack,
@@ -1934,10 +2124,12 @@ class _MainScreenState extends State<MainScreen> {
                                      Column(crossAxisAlignment: CrossAxisAlignment.start,
                                        children: [
                                          SizedBox(height: 5.0,),
-                                         Container(
+                                         customcontainer(
+                                           color: MyColors.pink,
+                                           borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
                                            padding: EdgeInsets.all(0.0),
                                            height: 40,width: 110,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
+                                           
 
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
@@ -1945,11 +2137,11 @@ class _MainScreenState extends State<MainScreen> {
                                            ),
                                          ),
                                          SizedBox(height: 10.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
                                            height: 40,width: 180,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-
+                                           color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),
+                                         ),
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
                                              child: Row(children: [Text('2 Small Pizza for Rs 675',style: TextStyle(color: MyColors.white),)]),
@@ -1957,12 +2149,11 @@ class _MainScreenState extends State<MainScreen> {
                                          ),
                                          SizedBox(height: 10.0,),
                                          Padding(padding:EdgeInsets.only(left: 10),
-                                           child: Container(
+                                           child: customcontainer(
                                              padding: EdgeInsets.all(0.0),
-                                             height: 30,
-                                             // width: 88,
-                                             decoration: BoxDecoration(color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20))),
-
+                                             height: 30,// width: 88,
+                                               color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20)
+                                           ),
                                              child: Padding(
                                                padding:EdgeInsets.all(8.0),
                                                child: Row(children: [
@@ -1991,7 +2182,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 180,
                                          width: 280,
                                          color: MyColors.lightblack,
@@ -2006,22 +2197,23 @@ class _MainScreenState extends State<MainScreen> {
                                      Column(crossAxisAlignment: CrossAxisAlignment.start,
                                        children: [
                                          SizedBox(height: 5.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
                                            height: 40,width: 110,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-
+                                           color: MyColors.pink,
+                                           borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),
+                                         ),
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
                                              child: Row(children: [Text('Summer Deals',style: TextStyle(color: MyColors.white),)]),
                                            ),
                                          ),
                                          SizedBox(height: 10.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
                                            height: 40,width: 180,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-
+                                           color: MyColors.pink,
+                                           borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
                                              child: Row(children: [Text('2 Small Pizza for Rs 675',style: TextStyle(color: MyColors.white),)]),
@@ -2029,12 +2221,10 @@ class _MainScreenState extends State<MainScreen> {
                                          ),
                                          SizedBox(height: 10.0,),
                                          Padding(padding:EdgeInsets.only(left: 10),
-                                           child: Container(
+                                           child: customcontainer(
                                              padding: EdgeInsets.all(0.0),
-                                             height: 30,
-                                             // width: 88,
-                                             decoration: BoxDecoration(color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20))),
-
+                                             height: 30, // width: 88,
+                                              color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20),),
                                              child: Padding(
                                                padding:EdgeInsets.all(8.0),
                                                child: Row(children: [
@@ -2063,7 +2253,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 180,
                                          width: 280,
                                          color: MyColors.lightblack,
@@ -2078,22 +2268,23 @@ class _MainScreenState extends State<MainScreen> {
                                      Column(crossAxisAlignment: CrossAxisAlignment.start,
                                        children: [
                                          SizedBox(height: 5.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
                                            height: 40,width: 110,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-
+                                           color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),
+                                         ),
+                                           
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
                                              child: Row(children: [Text('Summer Deals',style: TextStyle(color: MyColors.white),)]),
                                            ),
                                          ),
                                          SizedBox(height: 10.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
                                            height: 40,width: 180,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-
+                                           color: MyColors.pink,
+                                           borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
                                              child: Row(children: [Text('2 Small Pizza for Rs 675',style: TextStyle(color: MyColors.white),)]),
@@ -2101,85 +2292,9 @@ class _MainScreenState extends State<MainScreen> {
                                          ),
                                          SizedBox(height: 10.0,),
                                          Padding(padding:EdgeInsets.only(left: 10),
-                                           child: Container(
-                                             padding: EdgeInsets.all(0.0),
-                                             height: 30,
-                                             // width: 88,
-                                             decoration: BoxDecoration(color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20))),
-
-                                             child: Padding(
-                                               padding:EdgeInsets.all(8.0),
-                                               child: Row(children: [
-                                                 Text('40 min',style: TextStyle(color: MyColors.black,fontWeight: FontWeight.bold),)]),
-                                             ),
-                                           ),
-                                         ),
-
-                                       ],
-                                     ),
-                                   ],
-                                 ),
-                                 SizedBox(height: 10,),
-                                 Text('KFC-Gulgusht Colony',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: MyColors.black),),
-                                 // SizedBox(height: 5.0,),
-                                 Text('1 KM away ',style: TextStyle(color: MyColors.lightblack,fontSize: 16)),
-
-
-                               ],
-
-                             ),
-                             SizedBox(width: 10.0,),
-                             Column(
-                               crossAxisAlignment: CrossAxisAlignment.start,
-                               children: [
-                                 Stack(
-                                   children: [
-                                     customcontainer(
-                                         padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
-                                         height: 180,
-                                         width: 280,
-                                         color: MyColors.lightblack,
-                                         onTap:(){},
-                                         image: DecorationImage(image: AssetImage('assets/images/pizza.jpg',),
-                                           fit: BoxFit.cover,)
-
-                                       // child:Image.asset('assets/images/pizza.jpg',
-                                       //   fit: BoxFit.cover,
-                                       // )
-                                     ),
-                                     Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                       children: [
-                                         SizedBox(height: 5.0,),
-                                         Container(
-                                           padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 110,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-
-                                           child: Padding(
-                                             padding: const EdgeInsets.all(5.0),
-                                             child: Row(children: [Text('Summer Deals',style: TextStyle(color: MyColors.white),)]),
-                                           ),
-                                         ),
-                                         SizedBox(height: 10.0,),
-                                         Container(
-                                           padding: EdgeInsets.all(0.0),
-                                           height: 40,width: 180,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-
-                                           child: Padding(
-                                             padding: const EdgeInsets.all(5.0),
-                                             child: Row(children: [Text('2 Small Pizza for Rs 675',style: TextStyle(color: MyColors.white),)]),
-                                           ),
-                                         ),
-                                         SizedBox(height: 10.0,),
-                                         Padding(padding:EdgeInsets.only(left: 10),
-                                           child: Container(
-                                             padding: EdgeInsets.all(0.0),
-                                             height: 30,
-                                             // width: 88,
-                                             decoration: BoxDecoration(color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20))),
-
+                                           child: customcontainer(padding: EdgeInsets.all(0.0),
+                                             height: 30, // width: 88,
+                                             color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20),),
                                              child: Padding(
                                                padding:EdgeInsets.all(8.0),
                                                child: Row(children: [
@@ -2209,7 +2324,7 @@ class _MainScreenState extends State<MainScreen> {
                                    children: [
                                      customcontainer(
                                          padding: EdgeInsets.all(0.0),
-                                         borderRadius: 10.0,
+                                         // borderRadius: 10.0,
                                          height: 180,
                                          width: 280,
                                          color: MyColors.lightblack,
@@ -2224,22 +2339,21 @@ class _MainScreenState extends State<MainScreen> {
                                      Column(crossAxisAlignment: CrossAxisAlignment.start,
                                        children: [
                                          SizedBox(height: 5.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
                                            height: 40,width: 110,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-
+                                           color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),
+                                         ),
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
                                              child: Row(children: [Text('Summer Deals',style: TextStyle(color: MyColors.white),)]),
                                            ),
                                          ),
                                          SizedBox(height: 10.0,),
-                                         Container(
+                                         customcontainer(
                                            padding: EdgeInsets.all(0.0),
                                            height: 40,width: 180,
-                                           decoration: BoxDecoration(color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),),
-
+                                           color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
                                            child: Padding(
                                              padding: const EdgeInsets.all(5.0),
                                              child: Row(children: [Text('2 Small Pizza for Rs 675',style: TextStyle(color: MyColors.white),)]),
@@ -2247,12 +2361,80 @@ class _MainScreenState extends State<MainScreen> {
                                          ),
                                          SizedBox(height: 10.0,),
                                          Padding(padding:EdgeInsets.only(left: 10),
-                                           child: Container(
+                                           child: customcontainer(
                                              padding: EdgeInsets.all(0.0),
                                              height: 30,
                                              // width: 88,
-                                             decoration: BoxDecoration(color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20))),
+                                               color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20),),
+                                             child: Padding(
+                                               padding:EdgeInsets.all(8.0),
+                                               child: Row(children: [
+                                                 Text('40 min',style: TextStyle(color: MyColors.black,fontWeight: FontWeight.bold),)]),
+                                             ),
+                                           ),
+                                         ),
 
+                                       ],
+                                     ),
+                                   ],
+                                 ),
+                                 SizedBox(height: 10,),
+                                 Text('KFC-Gulgusht Colony',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: MyColors.black),),
+                                 // SizedBox(height: 5.0,),
+                                 Text('1 KM away ',style: TextStyle(color: MyColors.lightblack,fontSize: 16)),
+
+
+                               ],
+
+                             ),
+                             SizedBox(width: 10.0,),
+                             Column(
+                               crossAxisAlignment: CrossAxisAlignment.start,
+                               children: [
+                                 Stack(
+                                   children: [
+                                     customcontainer(
+                                         padding: EdgeInsets.all(0.0),
+                                         // borderRadius: 10.0,
+                                         height: 180,
+                                         width: 280,
+                                         color: MyColors.lightblack,
+                                         onTap:(){},
+                                         image: DecorationImage(image: AssetImage('assets/images/pizza.jpg',),
+                                           fit: BoxFit.cover,)
+
+                                       // child:Image.asset('assets/images/pizza.jpg',
+                                       //   fit: BoxFit.cover,
+                                       // )
+                                     ),
+                                     Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                       children: [
+                                         SizedBox(height: 5.0,),
+                                         customcontainer(
+                                           padding: EdgeInsets.all(0.0),
+                                           height: 40,width: 110,
+                                           color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),),
+                                           child: Padding(
+                                             padding: const EdgeInsets.all(5.0),
+                                             child: Row(children: [Text('Summer Deals',style: TextStyle(color: MyColors.white),)]),
+                                           ),
+                                         ),
+                                         SizedBox(height: 10.0,),
+                                         customcontainer(
+                                           padding: EdgeInsets.all(0.0),
+                                           height: 40,width: 180,
+                                           color: MyColors.pink,borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0),), child: Padding(
+                                             padding: const EdgeInsets.all(5.0),
+                                             child: Row(children: [Text('2 Small Pizza for Rs 675',style: TextStyle(color: MyColors.white),)]),
+                                           ),
+                                         ),
+                                         SizedBox(height: 10.0,),
+                                         Padding(padding:EdgeInsets.only(left: 10),
+                                           child: customcontainer(
+                                             padding: EdgeInsets.all(0.0),
+                                             height: 30,
+                                             // width: 88,
+                                             color: MyColors.white,borderRadius: BorderRadius.all(Radius.circular(20),),
                                              child: Padding(
                                                padding:EdgeInsets.all(8.0),
                                                child: Row(children: [
@@ -2288,7 +2470,7 @@ class _MainScreenState extends State<MainScreen> {
                        spreadRadius: 0.001
                        )
                        ],
-                       height: 120,
+                       height: 140,
                         //width: MediaQuery.of(context).size.width*0.8,
                          width: 400,
                          color: MyColors.white1,
@@ -2304,7 +2486,9 @@ class _MainScreenState extends State<MainScreen> {
                            ],
                          ),
                           customcontainer(
-                            height:200 ,width: 120,padding: EdgeInsets.zero,
+                            height:100 ,
+                            width: 80,
+                            padding: EdgeInsets.zero,
                             child: Image.asset('assets/images/panda.png',
                               alignment: Alignment.topRight,
 

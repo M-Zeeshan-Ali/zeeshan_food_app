@@ -28,7 +28,8 @@ class _ResturantsState extends State<Resturants> {
             children: [
               customcontainer(
                 height: 55, width:90,
-                borderRadius: 30,
+                borderRadius: BorderRadius.circular(30.0),
+                //borderRadius: 30,
                 color: MyColors.pink,
                 child: Row( mainAxisAlignment: MainAxisAlignment.center,
                   //crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,7 +49,8 @@ class _ResturantsState extends State<Resturants> {
                     customcontainer(
                       boxShadow: [BoxShadow(color: MyColors.black,spreadRadius: 0.5)],
                       height: 55, width:90,
-                      borderRadius: 30,
+                    borderRadius: BorderRadius.circular(30.0),
+                    //  borderRadius: 30,
                       color: MyColors.white,
                       child: Row( mainAxisAlignment: MainAxisAlignment.center,
                         //crossAxisAlignment: CrossAxisAlignment.center,
@@ -72,7 +74,8 @@ class _ResturantsState extends State<Resturants> {
             Align(alignment:Alignment.center ,
               child: customcontainer(
                   padding: EdgeInsets.all(0.0),
-                   borderRadius: 0.0,
+                borderRadius: BorderRadius.circular(0.0),
+                //borderRadius: 0.0,
                   height: 150,
                   width: 110,
                   color: MyColors.white1,

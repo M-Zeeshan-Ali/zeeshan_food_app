@@ -17,7 +17,9 @@ class _Order_reorderingState extends State<Order_reordering> {
     return Scaffold(
       appBar: AppBar(backgroundColor: MyColors.white,elevation: 1.0,
         title: Text("Order & reordering",style: TextStyle(color: MyColors.black)),
-        leading:IconButton(onPressed: (){},icon: Icon(Icons.close,color: MyColors.pink,)) ,
+        leading:IconButton(onPressed: (){
+          Navigator.pop(context);
+        },icon: Icon(Icons.close,color: MyColors.pink,)) ,
       ),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.center,

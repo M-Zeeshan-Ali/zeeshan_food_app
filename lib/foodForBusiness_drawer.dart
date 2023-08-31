@@ -17,7 +17,10 @@ class _FoodForBusinessState extends State<FoodForBusiness> {
       appBar: AppBar(
         centerTitle: true,title: Text("Food For Business",style: TextStyle(color: MyColors.black)),
         backgroundColor: MyColors.white1,elevation: 1.0,
-        leading: IconButton(onPressed: (){}, icon:Icon(Icons.close,color: MyColors.pink,)
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        },
+            icon:Icon(Icons.close,color: MyColors.pink,)
         ),
       ),
       body: Padding(

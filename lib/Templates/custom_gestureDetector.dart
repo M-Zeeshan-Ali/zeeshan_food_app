@@ -9,13 +9,13 @@ class CustomGestureDetector extends StatelessWidget {
     this.child,
     key,  }) : super(key: key);
 
-  final Function? onTap;
-  Function? onLongPress;
+  void Function()? onTap;
+  void Function()? onLongPress;
   Widget? child;
 
   @override
   Widget build(BuildContext context) {
-    return CustomGestureDetector(
+    return GestureDetector(
         onTap:onTap,
         onLongPress: onLongPress,
       child: child,

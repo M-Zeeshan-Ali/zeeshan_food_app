@@ -25,12 +25,17 @@ class _PandaProState extends State<PandaPro> {
           Opacity(opacity: 0.9,
               child: customcontainer(
                 padding: EdgeInsets.all(10.0),
-                    borderRadius:3.0 ,
+                   ////
+                    borderRadius:BorderRadius.all(Radius.circular(3.0)) ,
                   color: MyColors.pink1,height: 300,width: MediaQuery.of(context).size.width,
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                   CircleAvatar(radius: 20,backgroundColor: MyColors.white,
-                      child: IconButton(onPressed: (){}, icon: Icon(Icons.close,color: MyColors.pink,)
+                      child: IconButton(
+                          onPressed: (){
+                            Navigator.pop(context);
+                          },
+                          icon: Icon(Icons.close,color: MyColors.pink,)
                       )
                   ),
                    SizedBox(height: 30,),
@@ -100,7 +105,8 @@ class _PandaProState extends State<PandaPro> {
             child: customcontainer(
               height: 55,width: 160,
               color: MyColors.white2,
-              borderRadius: 30,
+              borderRadius: BorderRadius.circular(30.0),
+              //borderRadius: 30,
               child: Row(crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

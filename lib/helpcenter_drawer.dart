@@ -14,7 +14,10 @@ class _HelpCenterState extends State<HelpCenter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true,backgroundColor: MyColors.white1,elevation: 1.0,
-        leading: IconButton(onPressed: (){}, icon:Icon(Icons.close,color: MyColors.pink,)
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        },
+            icon:Icon(Icons.close,color: MyColors.pink,)
       ),
         title: Text("How can we help?",style: TextStyle(color: MyColors.black)),
       ),

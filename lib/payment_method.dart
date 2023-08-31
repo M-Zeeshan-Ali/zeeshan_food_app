@@ -42,7 +42,10 @@ class _PaymentMethodState extends State<PaymentMethod> {
       ),
       body: Stack(
         children: [
-        customcontainer(color: MyColors.pink,height: 80,borderRadius: 0.0,
+        customcontainer(color: MyColors.pink,height: 80,
+          //borderRadius: 0.0,
+          borderRadius: BorderRadius.circular(0.0),
+
           ),
           Padding(
             padding:EdgeInsets.all(8.0),
